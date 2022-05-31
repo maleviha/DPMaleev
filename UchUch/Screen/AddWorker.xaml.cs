@@ -56,7 +56,7 @@ namespace UchUch.Screen
             if (TBfio.Text != "" && TBpost.Text != "" && TBwork.Text != "" && TBnumtab.Text != "" && TBpass.Text !="")
             {
                 Table<Users> jbs = db.GetTable<Users>();
-                Users jbn = new Users { fio = TBfio.Text, post = TBpost.Text, work = TBwork.Text, num = TBnumtab.Text, password = TBpass.Text, ad = "0", status = 1 };
+                Users jbn = new Users { fio = TBfio.Text, post = TBpost.Text, work = TBwork.Text, num = TBnumtab.Text, password = TBpass.Text, ad = "0", image="profile.png", status = 1 };
 
                 jbs.InsertOnSubmit(jbn);
                 db.SubmitChanges();
@@ -112,10 +112,7 @@ namespace UchUch.Screen
                 MessageBox.Show("Работник изменен");
                 ClearTablePole();
                 updateGridOrders();
-                Admin fm1 = this.Owner as Admin;
-                Main fm2 = this.Owner as Main;
-                fm1.DG_Job.ItemsSource = Sign.db.GetTable<Job>().Where(a => a.status == 1);
-                fm2.DG_Work.ItemsSource = Sign.db.GetTable<Job>().Where(a => a.status == 1);
+                
 
                 CanvasEditProduct.Visibility = Visibility.Collapsed;
             }
@@ -136,7 +133,8 @@ namespace UchUch.Screen
                 temp[0].status = 0;
                 Sign.db.SubmitChanges();
                 updateGridOrders();
-                
+                MessageBox.Show("Работник удалён");
+
             }
             catch (Exception)
             {
