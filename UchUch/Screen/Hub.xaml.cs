@@ -22,12 +22,16 @@ namespace UchUch.Screen
     /// </summary>
     public partial class Hub : Window
     {
-        public Hub()
+        string _role = "";
+        public Hub(string role)
         {
             InitializeComponent();
+            _role = role;
 
-
-
+            if (role != "admin")
+            {
+                ButtonOpenAdm.Visibility = Visibility.Hidden;
+            }
             ProfLogin.Content = $"Ваш табельный № : {Users.LoginName}";
             var tempPost = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.post).ToArray()[0];
             ProfPost.Content = $"Ваша должность: {tempPost}";
@@ -49,7 +53,7 @@ namespace UchUch.Screen
 
         private void ButtonOpen_Click(object sender, RoutedEventArgs e)
         {
-            Main w = new Main();
+            Main w = new Main(_role);
             w.Show();
             Hide();
         }
@@ -75,7 +79,7 @@ namespace UchUch.Screen
 
             Hide();
             MessageBox.Show($" {tempFIO}, вы вошли в панель Начальника.");
-            Admin w = new Admin();
+            Admin w = new Admin(_role);
             w.Show();
 
         }

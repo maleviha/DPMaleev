@@ -25,12 +25,13 @@ namespace UchUch.Screen
     {
 
         DataContext db = new DataContext(Properties.Settings.Default.conn);
-
-        public AddWorker()
+        string _role = "";
+        public AddWorker(string role)
         {
             
             InitializeComponent();
             updateGridOrders();
+            _role = role;
         }
         public void updateGridOrders() //получение таблицы работ из базы
         {
@@ -71,7 +72,7 @@ namespace UchUch.Screen
         {
             Hide();
            
-            Admin w = new Admin();
+            Admin w = new Admin(_role);
             w.Show();
         }
 

@@ -22,6 +22,7 @@ namespace UchUch.Screen
     public partial class Sign : Window
     {
         public static DataContext db = new DataContext(Properties.Settings.Default.conn);
+        string role = "";
         public Sign()
         {
             InitializeComponent();
@@ -53,11 +54,11 @@ namespace UchUch.Screen
                     Users.LoginName = TBlogin.Text;
                     var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
 
-                    
-                    
+
+                    role = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.ad).ToArray()[0];
 
                     MessageBox.Show($"Добро пожаловать, {tempFIO}");
-                    Hub w = new Hub();
+                    Hub w = new Hub(role);
                     w.Show();
                     Hide();
                 }

@@ -26,7 +26,7 @@ namespace UchUch.Classes
         [Column(Name = "date")]
         public string date { get; set; }
         [Column(Name = "status")]
-        public int status { get; set; }
+        public long status { get; set; }
 
     }
 }

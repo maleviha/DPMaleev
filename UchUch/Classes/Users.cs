@@ -30,7 +30,7 @@ namespace UchUch.Classes
         [Column(Name = "num")]
         public string num { get; set; }
         [Column(Name = "status")]
-        public int status { get; set; }
+        public long status { get; set; }
 
         [Column(Name = "image")] 
         public string image { get; set; }

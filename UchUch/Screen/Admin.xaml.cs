@@ -23,10 +23,12 @@ namespace UchUch.Screen
     public partial class Admin : Window
     {
         DataContext db = new DataContext(Properties.Settings.Default.conn);
-        public Admin()
+        string _role = "";
+        public Admin(string role)
         {
             InitializeComponent();
             updateGridOrders();
+            _role = role;
         }
         private void updateGridOrders() //получение таблицы работ из базы
         {
@@ -40,7 +42,7 @@ namespace UchUch.Screen
             var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
 
             Hide();
-            AddWorker w = new AddWorker();
+            AddWorker w = new AddWorker(_role);
             w.Show();
         }
 
@@ -50,7 +52,7 @@ namespace UchUch.Screen
 
             Hide();
             MessageBox.Show($"{tempFIO}, вы вернулись в профиль");
-            Hub w = new Hub();
+            Hub w = new Hub(_role);
             w.Show();
         }
 

@@ -23,15 +23,15 @@ namespace UchUch.Screen
     public partial class Main : Window
     {
         DataContext db = new DataContext(Properties.Settings.Default.conn);
-
-
-        public Main()
+        string _role = "";
+        string tempFIO = "";
+        public Main(string role)
         {
             InitializeComponent();
-            updateGridOrders();
+            _role = role;
 
-
-            var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
+                                                                                                                                    // Динамические данные авторизованного работника
+            tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
             TBfio.Text = tempFIO;
 
             var tempPOST = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.post).ToArray()[0];
@@ -42,6 +42,7 @@ namespace UchUch.Screen
 
 
             TBdate.SelectedDate = DateTime.Now;
+            updateGridOrders();
         }
 
 
@@ -51,7 +52,7 @@ namespace UchUch.Screen
 
         private void updateGridOrders() //получение таблицы работ из базы
         {
-            DG_Work.ItemsSource = db.GetTable<Job>().Where(a => a.status == 1);
+            DG_Work.ItemsSource = db.GetTable<Job>().Where(a => a.status == 1 && a.fio==tempFIO).ToList();
 
             
 
@@ -82,7 +83,7 @@ namespace UchUch.Screen
 
             Hide();
             MessageBox.Show($" {tempFIO}, вы вернулись в профиль");
-            Hub w = new Hub();
+            Hub w = new Hub(_role);
             w.Show();
             
         }
