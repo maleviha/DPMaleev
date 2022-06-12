@@ -37,28 +37,27 @@ namespace UchUch.Screen
 
 
         }
-        private void BtnUsers_Click(object sender, RoutedEventArgs e)
-        {
-            var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
-
-            Hide();
-            AddWorker w = new AddWorker(_role);
-            w.Show();
-        }
+       
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
-
             Hide();
-            MessageBox.Show($"{tempFIO}, вы вернулись в профиль");
-            Hub w = new Hub(_role);
+            Sign w = new Sign();
             w.Show();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void btnAddWorker_Click(object sender, RoutedEventArgs e)
+        {
+            var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
+
+            Hide();
+            AddWorker w = new AddWorker(_role);
+            w.Show();
         }
     }
 }

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:UchUch"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Учет работы" Height="533" Width="1135" WindowStyle="None"  MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="гр. ТМК - СинТЗ - Панель работника" Height="533" Width="1135"   MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="181*"/>
@@ -25,23 +25,23 @@
         </DataGrid>
 
         <StackPanel Grid.Column="1">
-            <Label Content="ФИО" Width="312"/>
-            <TextBox x:Name="TBfio" Width="309" IsEnabled="False"/>
-            <Label Content="Должность" Width="312"/>
-            <TextBox x:Name="TBpost" Width="309" IsEnabled="False" />
-            <Label Content="Участок" Width="308"/>
-            <TextBox x:Name="TBwork" Width="312" IsEnabled="False"/>
-            <Label Content="Дата" Width="312"/>
-            <DatePicker x:Name="TBdate" Width="309"  />
-            <Label Content="Описание работы"/>
-            <TextBox x:Name="TBDescript" Height="172" Width="298" TextWrapping="Wrap"/>
+            <Label Content="ФИО" Width="343" Height="25"/>
+            <TextBox x:Name="TBfio" Width="345" Height="31" IsEnabled="False" SelectionBrush="#FFE8965F" CaretBrush="#FFE8965F" Cursor="Arrow"/>
+            <Label Content="Должность" Width="343" Height="25"/>
+            <TextBox x:Name="TBpost" Width="345" Height="31" IsEnabled="False" SelectionBrush="#FFE8965F" CaretBrush="#FFE8965F" />
+            <Label Content="Участок"  Width="343" Height="25"/>
+            <TextBox x:Name="TBwork" Width="345" Height="31" IsEnabled="False" SelectionBrush="#FFE8965F" CaretBrush="#FFE8965F" Cursor="Arrow"/>
+            <Label Content="Дата"  Width="343" Height="25"/>
+            <DatePicker x:Name="TBdate" Width="345" Height="31"  />
+            <Label Content="Описание работы"  Width="343" Height="25"/>
+            <TextBox x:Name="TBDescript" Height="182" Width="335" TextWrapping="Wrap" SelectionBrush="#FFE8965F"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed">
 
             </StackPanel>
-            <StackPanel Orientation="Vertical" Width="353" Height="137">
-                <Button x:Name="BtnAdd" Content="Добавить" Width="108" Click="BtnAdd_Click" Height="45" Margin="10" />
-                <Button x:Name="BtnBack" Content="Профиль" Width="108" Click="BtnBack_Click"  Height="45" Margin="10" />
+            <StackPanel Orientation="Horizontal" Width="353" Height="137" Margin="0,-32,-110,0">
+                <Button x:Name="BtnAdd" Content="Добавить" Width="108" Click="BtnAdd_Click" Height="45" Margin="5" Background="#FFEC6308" Cursor="Hand" BorderBrush="#FFEC6308" />
+                <Button x:Name="BtnBack" Content="Выйти" Width="108" Click="BtnBack_Click"  Height="45" Margin="5" Background="#FFEC6308" BorderBrush="#FFEC6308" />
             </StackPanel>
         </StackPanel>
     </Grid>

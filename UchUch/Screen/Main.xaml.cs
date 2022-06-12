@@ -82,8 +82,8 @@ namespace UchUch.Screen
             var tempFIO = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.fio).ToArray()[0];
 
             Hide();
-            MessageBox.Show($" {tempFIO}, вы вернулись в профиль");
-            Hub w = new Hub(_role);
+            
+            Sign w = new Sign();
             w.Show();
             
         }

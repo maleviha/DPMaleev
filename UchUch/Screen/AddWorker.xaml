@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:UchUch.Screen"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Учет работы" Height="450" Width="991" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" >
+        Title=" гр. ТМК - СинТЗ - Добавить работника" Height="466" Width="894"  MouseLeftButtonDown="Window_MouseLeftButtonDown" >
     <Grid>
-       
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="181*"/>
             <ColumnDefinition Width="83*"/>
         </Grid.ColumnDefinitions>
-        
-        <DataGrid x:Name="DG_Worker" AutoGenerateColumns="False" Grid.Column="0" Margin="0,0,0,107" >
+
+        <DataGrid x:Name="DG_Worker" AutoGenerateColumns="False" Grid.Column="0" Margin="0,0,3,134" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№" Binding="{Binding numtab}"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding fio}"/>
@@ -25,37 +25,38 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="BtnBack" Content="Назад" FontWeight="Bold" Click="BtnBack_Click" Margin="266,366,266,23"/>
-
-        <StackPanel Grid.Column="1">
-            
-            <Label Content="ФИО"/>
-            <TextBox x:Name="TBfio"/>
-            <Label Content="№ пропуска" Width="312"/>
-            <TextBox x:Name="TBnumtab" Width="309"/>
-            <Label Content="Участок" Width="308"/>
-            <TextBox x:Name="TBwork" Width="312"/>
-            <Label Content="Должность" Width="308"/>
-            <TextBox x:Name="TBpost" Width="312"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed">
 
 
-            </StackPanel>
-            
-            <Label Content="Пароль" Width="308"/>
-            <TextBox x:Name="TBpass" Width="312"/>
-            <StackPanel Orientation="Horizontal" Width="234" Height="28" Margin="30">
-                <Button x:Name="BtnAdd" Content="Добавить" Width="80" Click="BtnAdd_Click"/>
-                <Button x:Name="BtnEdit" Content="Изменить" Width="80" Click="BtnEdit_Click" />
-                <Button x:Name="BtnDelete" Content="Удалить" Width="80" Click="BtnDelete_Click" />
+        <StackPanel Margin="0,0,0,4" Grid.Column="1">
+            <Label Content="ФИО" Height="29" Width="300"/>
+            <TextBox x:Name="TBfio" Height="30" Width="296" CaretBrush="#FFEC6308" SelectionBrush="#FFE8965F"/>
+            <Label Content="№ пропуска" Height="29" Width="300"/>
+            <TextBox x:Name="TBnumtab" Height="30" Width="296" CaretBrush="#FFEC6308" SelectionBrush="#FFE8965F"/>
+            <Label Content="Участок" Height="29" Width="300"/>
+            <TextBox x:Name="TBwork" Height="30" Width="296" CaretBrush="#FFEC6308" SelectionBrush="#FFE8965F"/>
+            <Label Content="Должность" Height="29" Width="300"/>
+            <TextBox x:Name="TBpost" Height="30" Width="296" CaretBrush="#FFEC6308" SelectionBrush="#FFE8965F"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed"/>
+
+            <Label Content="Пароль" Height="29" Width="300"/>
+            <TextBox x:Name="TBpass" Height="30" Width="296" CaretBrush="#FFEC6308" SelectionBrush="#FFE8965F" Cursor="Arrow"/>
+            <StackPanel Orientation="Horizontal" Width="270" Height="79" Margin="0,10,10,10">
+                <Button x:Name="BtnAdd" Content="Добавить" Width="80" Height="40" Margin="2" Click="BtnAdd_Click" FontSize="10" Background="#FFEC6308" BorderBrush="#FFEC6308"/>
+                <Button x:Name="BtnEdit" Content="Изменить" Width="80" Height="40" Margin="5" Click="BtnEdit_Click" FontSize="10" Background="#FFEC6308" BorderBrush="#FFEC6308" />
+                <Button x:Name="BtnDelete" Content="Удалить" Width="81" Height="41" Margin="5" Click="BtnDelete_Click" FontSize="10" Background="#FFEC6308" BorderBrush="#FFEC6308" Cursor="Hand" />
 
             </StackPanel>
-           
+
+
+
         </StackPanel>
-        <Canvas x:Name="CanvasEditProduct" Visibility="Collapsed" Margin="158,-172,-247,-228" Grid.ColumnSpan="2">
-            <Button x:Name="ButtonProductsOk" Content="Ok" Width="50" Height="50" Click="ButtonProductsOk_Click"  Canvas.Left="595" Canvas.Top="508"/>
-            <Button x:Name="ButtonProductsConsal" Content="Отменить" Width="100" Height="50" Click="ButtonProductsConsal_Click"  Canvas.Left="660" Canvas.Top="508"/>
+        <Canvas x:Name="CanvasEditProduct" Visibility="Collapsed" Margin="68,-122,-157,-278" Grid.ColumnSpan="2">
+            <Button x:Name="ButtonProductsOk" Content="ОК" Width="80" Height="40" Click="ButtonProductsOk_Click"  Canvas.Left="570" Canvas.Top="505" FontSize="10" Background="#FF27251F" BorderBrush="#FF27251F"/>
+            <Button x:Name="ButtonProductsConsal" Content="Отменить" Width="80" Height="40" Click="ButtonProductsConsal_Click"  Canvas.Left="686" Canvas.Top="505" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10" Background="#FFEC6308" BorderBrush="#FFEC6308"/>
         </Canvas>
+        <StackPanel Orientation="Horizontal" Margin="480,325,3,-9" >
+            <Button x:Name="BtnBack" Content="Назад" FontWeight="Bold" Click="BtnBack_Click" Width="100" Height="50" Margin="9" Grid.Column="1" Background="#FFEC6308" BorderBrush="#FFEC6308"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -7,7 +7,7 @@
         x:Class="UchUch.Screen.Admin"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Админка" Height="450" Width="800" WindowStyle="None"  MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="гр. ТМК - СинТЗ - Панель Начальника" Height="450" Width="800"   MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="330*"/>
@@ -29,29 +29,25 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="1" Grid.Column="0">
-            <Button x:Name="BtnBack" Content="Назад" Width="89" FontWeight="Bold"  Height="44" Click="BtnBack_Click" />
-        </StackPanel>
-
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
-            <Expander Header="Добавить работников">
-                <StackPanel>
-                    <StackPanel Orientation="Vertical"/>
-                    <Button x:Name="BtnUsers" Content=". . ." Width="89" FontWeight="Bold" Click="BtnUsers_Click" Height="44" />
-                    <StackPanel Orientation="Horizontal"/>
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed">
-                        
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5"/>
-
-                </StackPanel>
-            </Expander>
 
             <Expander Header="Фильтры">
-                
+
             </Expander>
+            <StackPanel>
+                <StackPanel Orientation="Vertical"/>
+                <Button x:Name="btnAddWorker" Content="Добавить работника" Width="180" FontWeight="Bold" Click="btnAddWorker_Click" Height="44" Margin="20" Cursor="Hand" Background="#FFEC6308" BorderBrush="#FFEC6308" />
+                <StackPanel Orientation="Horizontal"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+
+            </StackPanel>
+            <StackPanel Height="96" Width="552" Margin="-140,180,0,80">
+                <Button x:Name="BtnBack" Content="Выйти" Width="89" FontWeight="Bold"  Height="44" Click="BtnBack_Click" Margin="30" Background="#FFEC6308" BorderBrush="#FFEC6308"   />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

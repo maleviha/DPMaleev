@@ -45,7 +45,7 @@ namespace UchUch.Screen
             if (TBlogin.Text != null && TBpass.Password != null)
             {
                 int users = (db.GetTable<Users>().Where(u => u.num == TBlogin.Text && u.password == TBpass.Password)).Count();
-
+                
                 if (users == 1)
                 {
 
@@ -57,10 +57,24 @@ namespace UchUch.Screen
 
                     role = Sign.db.GetTable<Users>().Where(l => l.num == Users.LoginName).Select(s => s.ad).ToArray()[0];
 
-                    MessageBox.Show($"Добро пожаловать, {tempFIO}");
-                    Hub w = new Hub(role);
-                    w.Show();
-                    Hide();
+
+                    if (role == "admin")
+                    {
+                        MessageBox.Show($"Добро пожаловать, {tempFIO}");
+                        Admin w = new Admin(role);
+                        w.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Добро пожаловать, {tempFIO}");
+                        Main w = new Main(role);
+                        w.Show();
+                        Hide();
+                    }
+
+
+                    
                 }
                 else MessageBox.Show("Неверные данные");
             }

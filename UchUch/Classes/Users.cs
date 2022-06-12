@@ -12,7 +12,7 @@ using UchUch.Screen;
 
 namespace UchUch.Classes
 {
-    [Table(Name = "worker")]
+    [Table(Name = "Users")]
     class Users
     {
         [Column(Name = "numtab", IsPrimaryKey = true, IsDbGenerated = true)]
