@@ -7,7 +7,7 @@
         x:Class="UchUch.Screen.Admin"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="гр. ТМК - СинТЗ - Панель Начальника" Height="450" Width="800"   MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="гр. ТМК - СинТЗ - Панель Начальника" Height="448" Width="914"   MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="330*"/>
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="181*"/>
             <ColumnDefinition Width="83*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DG_Job" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="0">
+        <DataGrid x:Name="DG_Job" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="0" Margin="0,0,81,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№" Binding="{Binding numjob}"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding fio}"/>
@@ -29,11 +29,29 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Column="1" Grid.RowSpan="2">
+        <StackPanel Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="546,0,0,0">
 
 
-            <Expander Header="Фильтры">
+            <Expander Header="Отчеты">
+                <StackPanel Height="156">
+                    <Label Content="По работнику"/>
+                    <DockPanel >
+                        <TextBox x:Name="CBstatsByWorker" Width="273" TextChanged="CBstatsByWorker_TextChanged" Height="33"/>
+                        <Button x:Name="BtnToExcel1" Content="Вывод" IsEnabled="False" Click="BtnToExcel1_Click" Cursor="Hand" DockPanel.Dock="Right" Width="68" Margin="-10,0,0,0" Height="25" FontSize="11"/>
+                    </DockPanel>
 
+                    <DockPanel/>
+                    <StackPanel >
+                        <Label Content="По дате работ"/>
+                        <DockPanel HorizontalAlignment="Center">
+
+
+
+                            <DatePicker x:Name="BtnStatsDay" SelectedDateChanged="BtnStatsDay_SelectedDateChanged" Margin="-87,0,0,0" Height="41" Width="275"/>
+
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
             </Expander>
             <StackPanel>
                 <StackPanel Orientation="Vertical"/>

@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Title="гр. ТМК - СинТЗ - Панель работника" Height="533" Width="1135"   MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="181*"/>
             <ColumnDefinition Width="83*"/>
